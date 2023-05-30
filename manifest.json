@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Table To Excel",
+  "version": "1.0.4",
+  "description": "获取页面表格数据转成json并导出为excel",
+	"author": "https://github.com/qq928205801/table_to_excel_plug.git",
+  "icons": {
+    "16": "img/excel.png",
+		"32": "img/excel.png",
+    "48": "img/excel.png",
+		"128": "img/excel.png"
+  },
+  "permissions": [
+		"webRequest",
+    "downloads",
+    "contextMenus",
+    "<all_urls>",
+    "notifications",
+		"storage",
+		"scripting"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+	"content_scripts": [
+	  {
+	    "matches": ["<all_urls>"],
+	    "js": ["js/content.js"],
+	    "run_at": "document_start"
+	  }
+	],
+	"web_accessible_resources": ["js/injected.js","js/xlsx.js","js/export.js"]
+}
